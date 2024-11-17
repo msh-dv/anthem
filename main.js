@@ -14,7 +14,12 @@ console.log(`
 `);
 
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 
 client.commands = new Collection();
@@ -66,7 +71,6 @@ for (const file of eventFiles) {
     console.log(`Evento: ${event.name} listo!`);
   }
 }
-
 
 await uploadCommands();
 
