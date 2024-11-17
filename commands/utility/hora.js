@@ -1,39 +1,34 @@
-const { SlashCommandBuilder } = require('discord.js');
+import { SlashCommandBuilder }  from 'discord.js';
+export default  {
+     data: new SlashCommandBuilder()
+        .setName('hora')
+        .setDescription('Muestra la hora actual en México y Colombia'),
 
- //Información básica del comando.
-module.exports = {
-  data:new SlashCommandBuilder()
-  .setName('hora')
-  .setDescription('Da la hora'),
+    async execute(interaction) {
+        const zonasHorarias = {
+            mexico: 'America/Mexico_City',
+            colombia: 'America/Bogota',
+        };
 
-  async execute(interaction) {
-    const zonaHoraria = {
-      mexico: 'America, Mexico City',
-      colombia: 'America, Bogota',
-    };
+        const ahoraMexico = new Intl.DateTimeFormat('es-MX', {
+            timeZone: zonasHorarias.mexico,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+        }).format(new Date());
 
-    const horaMexico = new intl.DateTimeFormat('es-MX', {
-      timeZone: zonaHoraria, mexico,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    }).format(new Date());
+        const ahoraColombia = new Intl.DateTimeFormat('es-CO', {
+            timeZone: zonasHorarias.colombia,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+        }).format(new Date());
 
-
-  const horaColombia = new intl.DateTimeFormat('es-CO', {
-      timeZone: zonaHoraria, colombia,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    }).format(new Date());
-
-    await interaction.reply(
-              await interaction.reply(
-            `La hora actual es:\n🕰️ **México**: ${horaMexico}\n🕰️ **Colombia**: ${horaColombia}`),
+        await interaction.reply(
+            `La hora actual es:\n🕰️ **México**: ${ahoraMexico}\n🕰️ **Colombia**: ${ahoraColombia}`
         );
     },
-};
-    
+};    
 
 
   
