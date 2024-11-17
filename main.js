@@ -27,6 +27,7 @@ client.commands = new Collection();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+
 //Carga de comandos
 
 const foldersPath = join(__dirname, "commands");
