@@ -58,10 +58,10 @@ for (const file of eventFiles) {
   const { default: event } = await import(filePath);
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args));
-    console.log(`Evento unico ${event.name} listo!`);
+    console.log(`Evento unico: ${event.name} listo!`);
   } else {
     client.on(event.name, (...args) => event.execute(...args));
-    console.log(`Evento ${event.name} listo!`);
+    console.log(`Evento: ${event.name} listo!`);
   }
 }
 
