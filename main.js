@@ -2,6 +2,7 @@ import fs from "node:fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { Client, Collection, GatewayIntentBits } from "discord.js";
+import uploadCommands from "./deploy-commands.js";
 import "dotenv/config";
 
 console.log(`
@@ -20,6 +21,7 @@ client.commands = new Collection();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 //Carga de comandos
 
@@ -64,6 +66,9 @@ for (const file of eventFiles) {
     console.log(`Evento: ${event.name} listo!`);
   }
 }
+
+
+await uploadCommands();
 
 //login con el token de discord
 
