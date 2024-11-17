@@ -19,12 +19,12 @@ export default {
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({
           content: "There was a problem executing this command!",
-          ephemeral: true,
+          ephemeral: false,
         });
       } else {
         await interaction.reply({
           content: "There was a problem executing this command!",
-          ephemeral: true,
+          ephemeral: false,
         });
       }
     }
