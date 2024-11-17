@@ -14,14 +14,18 @@ console.log(`
 `);
 
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 
 client.commands = new Collection();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 
 //Carga de comandos
 
@@ -66,7 +70,6 @@ for (const file of eventFiles) {
     console.log(`Evento: ${event.name} listo!`);
   }
 }
-
 
 await uploadCommands();
 
