@@ -4,7 +4,8 @@
   "description": "Anthem, a Discord bot for transcribing audio and video.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
   "keywords": [],
   "type": "module",
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
     "openai": "^4.72.0"
   }
 }
